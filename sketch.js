@@ -79,7 +79,7 @@ function renderFPS(frameNum) {
 
 function render() {
         t++;
-        renderFPS(t);
+        //renderFPS(t);
         var currentTime = new Date();
         var deltaTime = (currentTime-previousTime)/1000;
         update(deltaTime);
