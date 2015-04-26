@@ -65,7 +65,7 @@ var lineStartLength = 50;
 
 var fpsElem = document.querySelector('#fps');
 var startTime = new Date();
-var outOfCameraZ = 2.2
+var outOfCameraZ = 4;
 var previousTime = new Date();
 var speed = 2;
 var closeness = 5;
@@ -128,8 +128,8 @@ function update(deltaTime) {
         material.color.g = Math.floor(Math.random() * 255);
         material.color.b = Math.floor(Math.random() * 255);
       }
-      cube.position.y = waveDatum.topY;
-      cube.position.x = ((lineStartLength/-2) + (lineStartLength/topCubes.length)*i)/closeness;
+      cube.position.y = 0.2 * waveDatum.topY;
+      cube.position.x = ((lineStartLength/-2) + (lineStartLength/topCubes.length)*i)/closeness + 2* Math.tan(waveIndex*i*0.05);
       cube.position.z =  waveDatum.z;
     }
 
@@ -141,8 +141,9 @@ function update(deltaTime) {
         material.color.g = Math.floor(Math.random() * 255);
         material.color.b = Math.floor(Math.random() * 255);
       }
-      cube.position.y = waveDatum.bottomY;
-      cube.position.x = ((lineStartLength/-2) + (lineStartLength/topCubes.length)*i)/closeness * -1;
+      cube.position.y = 0.2 * waveDatum.bottomY;
+      cube.position.x = (((lineStartLength/-2) + (lineStartLength/topCubes.length)*i)/closeness + 2* Math.tan(waveIndex*i*0.05)) * -1;
+      //cube.position.x = ((lineStartLength/-2) + (lineStartLength/topCubes.length)*i)/closeness * -1;
       cube.position.z = waveDatum.z;
     }
     cubeIndex += cubesPerWave;
