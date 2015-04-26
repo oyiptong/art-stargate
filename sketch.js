@@ -31,8 +31,9 @@ var boxGeom = new THREE.BoxGeometry(1, 1, 1);
 
 var cubes = [];
 var materials = [];
-var numCubes = 1000;
-var numWaves = 20;
+var numCubes = 2000;
+var numWaves = 40;
+
 var cubesPerWave = numCubes/numWaves;
 
 for (var i=0; i < numCubes; i++) {
@@ -78,7 +79,7 @@ function renderFPS(frameNum) {
 
 function render() {
         t++;
-        //renderFPS(t);
+        renderFPS(t);
         var currentTime = new Date();
         var deltaTime = (currentTime-previousTime)/1000;
         update(deltaTime);
@@ -143,7 +144,6 @@ function update(deltaTime) {
       }
       cube.position.y = 0.2 * waveDatum.bottomY;
       cube.position.x = (((lineStartLength/-2) + (lineStartLength/topCubes.length)*i)/closeness + 2* Math.tan(waveIndex*i*0.05)) * -1;
-      //cube.position.x = ((lineStartLength/-2) + (lineStartLength/topCubes.length)*i)/closeness * -1;
       cube.position.z = waveDatum.z;
     }
     cubeIndex += cubesPerWave;
